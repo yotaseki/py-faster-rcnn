@@ -108,6 +108,13 @@ class imdb(object):
             oldx2 = boxes[:, 2].copy()
             boxes[:, 0] = widths[i] - oldx2 - 1
             boxes[:, 2] = widths[i] - oldx1 - 1
+            '''
+            for b in range(len(boxes)):     
+                if boxes[b][2] < boxes[b][0]:
+                    boxes[b][0] = 0
+            print "NUM-" + str(i)+" * "+ str(boxes[b][2]) + "-" + str(boxes[b][0])
+            #'''
+            #print " *****  "+str(boxes[:, 2])+" / "+str(boxes[:, 0]) + "[" + str(i) + "/" + str(num_images) + "]"
             assert (boxes[:, 2] >= boxes[:, 0]).all()
             entry = {'boxes' : boxes,
                      'gt_overlaps' : self.roidb[i]['gt_overlaps'],
