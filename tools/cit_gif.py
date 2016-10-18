@@ -35,7 +35,8 @@ NETS = {'vgg16': ('VGG16',
         'cit':('CIT',
 #                  'CIT_142rotate_faster_rcnn_final.caffemodel')
 #                  'CIT_Ball_faster_rcnn_final.caffemodel')
-                  'CIT_VGAcompose_faster_rcnn_final.caffemodel')
+#                  'CIT_VGAcompose_faster_rcnn_final.caffemodel')
+                  'CIT_142rand_faster_rcnn_final.caffemodel')
 }
 
 def vis_detections(gifnum, image_name, im, class_name, dets, thresh=0.5):

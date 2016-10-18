@@ -1,4 +1,4 @@
-mkdir pos_result
-rm pos_result/*
+mkdir bbox_predicts
+rm bbox_predicts/*
 ./tools/cit_print.py $1
-mv $1*_result.txt pos_result/
+mv $1*_predict.txt bbox_predicts

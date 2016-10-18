@@ -35,12 +35,17 @@ NETS = {'vgg16': ('VGG16',
         'cit':('CIT',
 #                  'CIT_142rotate_faster_rcnn_final.caffemodel')
 #                  'CIT_Ball_faster_rcnn_final.caffemodel')
-                  'CIT_VGAcompose_faster_rcnn_final.caffemodel')
+#                  'CIT_VGAcompose_faster_rcnn_final.caffemodel')
+                  'CIT_142rand_faster_rcnn_final.caffemodel')
 }
 
 def vis_detections(image_name, im, class_name, dets, thresh=0.5):
     """Draw detected bounding boxes."""
     inds = np.where(dets[:, -1] >= thresh)[0]
+    filename = image_name.rstrip('.jpg')
+    filename = filename.rstrip('.png')
+    filename = filename + '_result.txt'
+    fp = open(filename,'w')
     if len(inds) == 0:
 #        im_ = im[:, :, (2, 1, 0)]
 #        fig, ax = plt.subplots(figsize=(12, 12))
@@ -49,14 +54,11 @@ def vis_detections(image_name, im, class_name, dets, thresh=0.5):
 #        plt.axis('off')
 #        plt.tight_layout()
 #        plt.draw()
-        fp.write('0 -1 -1 -1 -1')
+        fp.write('-1 -1 -1 -1 -1')
+        fp.close()
         return
     
-    filename = image_name.rstrip('.jpg')
-    filename = filename.rstrip('.png')
-    filename = filename + '_result.txt'
 #    im_ = im[:, :, (2, 1, 0)]
-    fp = open(filename,'w')
 #    fig, ax = plt.subplots(figsize=(12, 12))
 #    ax.imshow(im_, aspect='equal')
     for i in inds:
