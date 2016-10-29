@@ -44,7 +44,7 @@ def vis_detections(image_name, im, class_name, dets, thresh=0.5):
     inds = np.where(dets[:, -1] >= thresh)[0]
     filename = image_name.rstrip('.jpg')
     filename = filename.rstrip('.png')
-    filename = filename + '_result.txt'
+    filename = filename + '_predict.txt'
     fp = open(filename,'w')
     if len(inds) == 0:
 #        im_ = im[:, :, (2, 1, 0)]
@@ -54,7 +54,7 @@ def vis_detections(image_name, im, class_name, dets, thresh=0.5):
 #        plt.axis('off')
 #        plt.tight_layout()
 #        plt.draw()
-        fp.write('-1 -1 -1 -1 -1')
+        fp.write('-1 -1 -1 -1 -1 ')
         fp.close()
         return
     
@@ -65,7 +65,7 @@ def vis_detections(image_name, im, class_name, dets, thresh=0.5):
         bbox = dets[i, :4]
         score = dets[i, -1]
         
-        fp.write('0 '+str(int(bbox[0]))+' '+str(int(bbox[1]))+' '+str(int(bbox[2]))+' '+str(int(bbox[3]))+'\n')
+        fp.write('0 '+str(int(bbox[0]))+' '+str(int(bbox[1]))+' '+str(int(bbox[2]))+' '+str(int(bbox[3]))+' \n')
 #        
 #        ax.add_patch(
 #            plt.Rectangle((bbox[0], bbox[1]),
