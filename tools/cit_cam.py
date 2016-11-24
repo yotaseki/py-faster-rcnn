@@ -35,8 +35,8 @@ NETS = {'vgg16': ('VGG16',
         'cit':('CIT',
 #                  'CIT_142rotate_faster_rcnn_final.caffemodel')
 #                  'CIT_Ball_faster_rcnn_final.caffemodel')
-#                  'CIT_VGAcompose_faster_rcnn_final.caffemodel')
-                  'CIT_142rand_faster_rcnn_final.caffemodel')
+                  'CIT_VGAcompose_faster_rcnn_final.caffemodel')
+#                  'CIT_142rand_faster_rcnn_final.caffemodel')
 }
 
 def vis_detections(gifnum, im, class_name, dets, thresh=0.5):
@@ -105,7 +105,7 @@ def demo(net, im, gifnum):
            '{:d} object proposals').format(timer.total_time, boxes.shape[0])
 
     # Visualize detections for each class
-    CONF_THRESH = 0.5
+    CONF_THRESH = 0.8
     NMS_THRESH = 0.3
     for cls_ind, cls in enumerate(CLASSES[1:]):
         cls_ind += 1 # because we skipped background
