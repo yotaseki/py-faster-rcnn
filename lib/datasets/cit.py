@@ -27,7 +27,7 @@ class cit(imdb):
         self._classes = ('__background__', # always index 0
                          'ball')
         self._class_to_ind = dict(zip(self.classes, xrange(self.num_classes)))
-        self._image_ext = ['.png','.jpg']
+        self._image_ext = ['.jpg']
         self._image_index = self._load_image_set_index()
         self._salt = str(uuid.uuid4())
         self._comp_id = 'comp4'
