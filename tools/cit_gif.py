@@ -119,6 +119,7 @@ def parse_args():
     """Parse input arguments."""
     parser = argparse.ArgumentParser(description='Faster R-CNN demo')
     parser.add_argument('images')
+    parser.add_argument('model')
     parser.add_argument('--dev', dest='fvideo', help='Demo webcam',
                         default=-1, type=int)
     parser.add_argument('--gpu', dest='gpu_id', help='GPU device id to use [0]',
@@ -141,7 +142,7 @@ if __name__ == '__main__':
     prototxt = os.path.join(cfg.MODELS_DIR, NETS[args.demo_net][0],
                             'faster_rcnn_alt_opt', 'faster_rcnn_test.pt')
     caffemodel = os.path.join(cfg.DATA_DIR, 'faster_rcnn_models',
-                              NETS[args.demo_net][1])
+                              NETS[args.model])
 
     if not os.path.isfile(caffemodel):
         raise IOError(('{:s} not found.\nDid you run ./data/script/'
