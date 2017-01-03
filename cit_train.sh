@@ -12,7 +12,7 @@ read c
 if [ $c == 'y' ] ;then
 	for i in ${LIST} ;do
 		OUTPUT=`basename ${i} |sed "s/.txt//"`
-		OUTPUT=${1}_${OUTPUT}_randomseed.caffemodel
+		OUTPUT=${1}_${OUTPUT}_increase.caffemodel
 		rm ${2}/train.txt
 		ln -s ${i} ${2}/train.txt
 		#echo $OUTPUT
