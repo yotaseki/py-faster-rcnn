@@ -1,7 +1,9 @@
 
 # [1] Images dir
 echo "---------------------"
-LIST=`ls data/faster_rcnn_models/ZF_* |grep caffemodel | grep random`
+LIST="$LIST "
+#LIST="$LIST "
+#LIST="$LIST "
 for a in $LIST ;do
 	basename $a
 done
