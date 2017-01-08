@@ -2,9 +2,14 @@
 # ${1} ZF
 # ${2} train.txt dir
 echo "LIST:"
-LIST=`ls -d ${2}/* |grep random |grep -v list |grep -v train`
+LIST="$LIST "
 for i in ${LIST};do
-	echo " ${i}"
+        echo "*******************"
+	echo "TRAINTXT: ${i}"
+	rm ${2}/train.txt
+        ln -s ${i} ${2}/train.txt
+        echo -n "SYMLINK:"
+        file ${2}/train.txt
 done
 echo -n "OK?(y/n)"
 read c
@@ -12,7 +17,7 @@ read c
 if [ $c == 'y' ] ;then
 	for i in ${LIST} ;do
 		OUTPUT=`basename ${i} |sed "s/.txt//"`
-		OUTPUT=${1}_${OUTPUT}_increase.caffemodel
+		OUTPUT=${1}_${OUTPUT}.caffemodel
 		rm ${2}/train.txt
 		ln -s ${i} ${2}/train.txt
 		#echo $OUTPUT
