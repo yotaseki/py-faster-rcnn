@@ -107,7 +107,13 @@ def demo(net, image_name):
            '{:d} object proposals').format(timer.total_time, boxes.shape[0])
 
     # Visualize detections for each class
-    CONF_THRESH = args.thresh
+    Th = 0.0
+    if(args.thresh):
+        Th = float(args.thresh/100)
+    else:
+        Th = float(args.thresh)
+
+    CONF_THRESH = Th
     NMS_THRESH = 0.3
     for cls_ind, cls in enumerate(CLASSES[1:]):
         cls_ind += 1 # because we skipped background
@@ -134,7 +140,7 @@ def parse_args():
     parser.add_argument('--net', dest='demo_net', help='Network to use [vgg16]',
                         choices=NETS.keys(), default='cit')
     parser.add_argument('--thresh', dest='thresh', help='threshold',
-                        choices=NETS.keys(), default=.8)
+                        default=80, type=int)
 
     args = parser.parse_args()
 
