@@ -45,7 +45,7 @@ NETS = {'vgg16': ('VGG16',
 def vis_detections(image_name, im, class_name, dets, thresh=0.5):
     """Draw detected bounding boxes."""
     print(" * THRESHOLD: " + str(thresh))
-    NUM = ('%01.3f' % thresh)
+    NUM = ('%01.2f' % thresh)
     inds = np.where(dets[:, -1] >= thresh)[0]
     filename = image_name.rstrip('.jpg')
     filename = filename.rstrip('.png')
